@@ -1,14 +1,26 @@
 #!/usr/bin/env python 3
 
+def add(arg1, arg2):
+	return arg1 + arg2
+
+def subtract(arg1, arg2):
+	return arg1 - arg2
+
+operators = {
+	'+': add,
+	'-': subtract
+}
+
 def calculate(arg):
 	stack = list()
 	for operand in arg.split():
-		if operand == '+':
-			stack.append(stack.pop() + stack.pop())
-		elif operand == '-':
-			stack.append((stack.pop() - stack.pop())*-1)
-		else:
-			stack.append(float(operand))
+		try:
+			operand = float(operand)
+			stack.append(operand)
+		except ValueError:
+			arg2 = stack.pop()
+			arg1 = stack.pop()
+			stack.append(operators[operand](arg1, arg2))
 	return stack.pop()
 
 def main():
