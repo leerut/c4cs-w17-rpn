@@ -6,7 +6,7 @@ def calculate(arg):
 		if operand == '+':
 			stack.append(stack.pop() + stack.pop())
 		elif operand == '-':
-			stack.append(stack.pop() - stack.pop())
+			stack.append((stack.pop() - stack.pop())*-1)
 		else:
 			stack.append(float(operand))
 	return stack.pop()
