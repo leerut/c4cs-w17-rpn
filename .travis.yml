@@ -6,7 +6,6 @@ python:
  - "3.3"
  - "3.4"
  - "3.5"
-script: python3 -m unittest
-after_success:
+script:
+ - python3 -m unittest
  - coverage report rpn.py
-
