@@ -7,8 +7,7 @@ python:
  - "3.4"
  - "3.5"
 script:
- - python3 -m unittest 
- - coverage run rpn.py
+ - python3 -m unittest
  - coverage report rpn.py
 after_success:
  - coveralls
